@@ -55,10 +55,13 @@ jobs:
         image: ${{ env.kind-image }}
     - name: Wait cluster to start
       run: |
-        until [ "$(kubectl get pods --no-headers | grep -cEv '([0-9]+)/\1')" -eq 0 ]; do
-            sleep 5s
+         until kubectl cluster-info &> /dev/null; do
+            echo "Waiting for Kubernetes cluster to be ready..."
+            sleep 5
         done
-        kubectl get pod -A
+        echo "Kubernetes cluster is ready!"
+        kubectl get nodes
+        kubectl get pods --all-namespaces
     - name: Run and test Complete demo
       run: |
         kubectl apply -f deploy/kubernetes/complete-demo.yaml
