@@ -60,6 +60,7 @@ jobs:
             sleep 5
         done
         echo "Kubernetes cluster is ready!"
+        sleep 60
         kubectl get nodes
         kubectl get pods --all-namespaces
     - name: Run and test Complete demo
