@@ -1,4 +1,4 @@
-FROM mhart/alpine-node:6.17
+FROM node:20.10.0-alpine
 
 ENV NODE_ENV "development"
 ENV NODE_PATH "/usr/src/app/node_modules"
