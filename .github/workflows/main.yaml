@@ -43,7 +43,7 @@ jobs:
     needs: complete-demo-sync-check
     runs-on: ubuntu-latest
     env:
-      kind-version: 'v1.25.16'
+      kind-version: 'v1.10.0'
       kind-image: 'kindest/node:v1.25.16'
     timeout-minutes: 15
     steps:
