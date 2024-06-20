@@ -9,9 +9,11 @@ RUN apk add git python
 
 # Prepare app directory
 WORKDIR /usr/src/app
-COPY . /usr/src/app
+COPY package*.json ./
 RUN npm install
-VOLUME /tmp/specs
+COPY . .
+
+VOLUME tmp/specs
 
 # Start the app
 ENTRYPOINT ["/usr/src/app/node_modules/dredd/bin/dredd"]
