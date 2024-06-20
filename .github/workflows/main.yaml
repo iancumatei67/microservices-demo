@@ -55,7 +55,7 @@ jobs:
         image: ${{ env.kind-image }}
     - name: Wait cluster to start
       run: |
-         until kubectl cluster-info &> /dev/null; do
+        until kubectl cluster-info &> /dev/null; do
             echo "Waiting for Kubernetes cluster to be ready..."
             sleep 5
         done
